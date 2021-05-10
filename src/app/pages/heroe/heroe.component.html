@@ -1,0 +1,50 @@
+<h1>Heore  <small>Nombre del Heore</small></h1>
+
+
+<div class="row text-right">
+    <div class="col">
+         <button class="btn btn-danger"  routerLink="/heroes">
+              Regresar   
+        </button>
+    </div>
+</div>
+
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+            <form  (ngSubmit)="guardar( f )" #f="ngForm"   >
+                <div class="form-group">
+                    <label>Firebase ID</label>
+                    <input type="text" class="form-control disabled=disabled"  [(ngModel)]="heroe.id"  name="id">
+                    <small  class="form-text text-muted"> Es campo es Autogenerado</small>
+
+                </div>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control required" [(ngModel)]="heroe.nombre"  name="nombre">
+                    
+
+                </div>
+                <div class="form-group">
+                    <label>Poder</label>
+                    <input type="text" class="form-control required"  [(ngModel)]="heroe.poder"  name="poder" >
+                   
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <br>
+                    <button  *ngIf="heroe.vivo" (click)="heroe.vivo=false"   class="btn btn-outline-success w-50" tyoe="button">Vivo</button>
+                    <button  *ngIf="!heroe.vivo" (click)="heroe.vivo=true"  class="btn btn-outline-danger w-50" tyoe="button">Muerto</button>
+                </div>
+                <hr>
+                <div class="form-group text-center">
+                    <button   type="submit" class="btn btn-primary w-25">
+                    Guardar
+                    </button>
+
+                </div>
+            </form>
+    </div>
+
+</div>
